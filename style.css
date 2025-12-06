@@ -1,0 +1,482 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6fc;
+}
+.logo1{
+    width: 50px;
+    height: 50px;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 70px;
+    background: #fff;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: #2c7dff;
+    margin-left: 5px;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-icon.blue {
+    background: #2c7dff;
+}
+
+.nav-icon.gray {
+    background: #e0e0e0;
+    color: #555;
+    font-size: 14px;
+}
+
+/* NEW LAYOUT GRID - Now we are using only 2 columns for the main content and journey toggle */
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    /* Left Toggle (70px), Main Content (1fr) */
+    padding: 0;
+    min-height: calc(100vh - 70px);
+    position: relative;
+}
+
+/* --- COLUMN 1: LEFT JOURNEY TOGGLE --- */
+.left-column {
+    /* position: relative; */
+    background: #fff;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+}
+
+.journey-circle {
+    width: 50px;
+    height: 50px;
+    /* margin-left: 10px; */
+    border-radius: 50%;
+    border: 2px solid #000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.journey-board {
+    position: fixed;
+    top: 70px;
+    left: -240px;
+    width: 240px;
+    height: calc(100% - 70px);
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease-in-out;
+    z-index: 50;
+    padding: 20px;
+}
+
+.journey-board.open {
+    left: 0;
+}
+
+.journey-popup-title {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.journey-popup-close {
+    background: transparent;
+    color: #555;
+    border-radius: 50px;
+    width: 50px;
+    border: none;
+    color: #000;
+}
+
+
+
+.journey-board ul {
+    list-style: none;
+    padding: 0;
+}
+
+.journey-board li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 5px 0 5px 15px;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.journey-board li:first-child {
+    font-weight: bold;
+    color: #2c7dff;
+    border-left: 3px solid #2c7dff;
+    background: #f0f6ff;
+}
+
+
+/* --- COLUMN 2: MAIN CONTENT --- */
+.main-content {
+    padding: 20px 80px 20px 80px;
+    /* top, right, bottom, left */
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        padding: 20px 40px;
+    }
+}
+
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.course-title {
+    font-size: 22px;
+    color: #2c7dff;
+    margin: 0;
+}
+
+.submit-btn {
+    padding: 8px 16px;
+    background: #2c7dff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.top-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.task-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.course-description {
+    font-size: 14px;
+    color: #555;
+}
+
+/* CARDS GRID */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    /* Remove padding from the top to allow the black strip to cover the edge */
+    padding: 0 18px 16px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* --- BLACK STRIP STYLES (NEW) --- */
+.card-header-strip {
+    /* This is the black strip that spans the top of the card */
+    background: #000;
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 18px;
+    /* Padding for the text inside */
+    margin: 0 -18px 10px;
+    /* Negative margins to push it to the card's edges */
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-header {
+    /* Original card-header styles, contained within the strip for the title/info icon */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Reset padding/margin since it's now inside the strip */
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    /* Ensure some vertical alignment space */
+}
+
+.card-title {
+    /* Inherit color from the black strip parent, and adjust font size if needed */
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-info {
+    /* Adjust colors for the info icon on the black background */
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid white;
+    /* White border on black background */
+    color: white;
+    /* White text on black background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* --- END BLACK STRIP STYLES --- */
+
+.card-description {
+    /* Adjust margin-top if needed, but the margin in the strip should handle spacing */
+    font-size: 13px;
+    color: #555;
+}
+
+.video-wrapper {
+    margin-top: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+textarea {
+    resize: none;
+    min-height: 80px;
+}
+
+.thread-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.add-subthread-btn {
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: #2c7dff;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.section-box {
+    margin-top: 10px;
+    background: #f5f7fc;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.section-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.section-text {
+    font-size: 12px;
+    color: #555;
+}
+
+/* --- COLUMN 3: RIGHT NOTICE BAR (VARIABLE ELEMENT - Changed to absolute) --- */
+.right-column {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #000;
+    width: 12px;
+    height: 258px;
+    border-radius: 6px 0 0 6px;
+    z-index: 10;
+}
+
+.notice-bar-content {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* The Notice Board (sidebar - Changed to absolute) */
+.notice-board {
+    position: fixed;
+    top: 70px;
+    right: -260px;
+    width: 260px;
+    height: calc(100vh - 70px);
+    background: #ffffff;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    z-index: 50;
+    padding: 20px;
+}
+
+.notice-board.open {
+    right: 12px;
+}
+
+.notice-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #eee;
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 51;
+}
+
+/* --- FLOATING ACTION BAR (NEW) --- */
+.action-bar {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+    /* High z-index to ensure visibility */
+}
+
+.action-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2c7dff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.action-icon:hover {
+    background: #1e5bb8;
+}
+
+.action-icon.question {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* --- END FLOATING ACTION BAR --- */
+
+
+@media (max-width: 960px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Technical Project Management</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+           <img  class ="logo1"src="/logo.jpeg" alt=""> DEEP <span>THOUGHT</span>
+        </div>
+        <div class="nav-icons">
+            <div class="nav-icon blue" title="Home"><span class="material-icons-outlined">home</span></div>
+            <div class="nav-icon blue" title="Tools"><span class="material-icons-outlined">handyman</span></div>
+            <div class="nav-icon blue" title="notification"><span
+                    class="material-icons-outlined">notifications_active</span></div>
+            <div class="nav-icon gray" title="User"><span class="material-icons-outlined">person_outline</span></div>
+            <div class="nav-icon gray" style="font-size: 12px; font-weight: bold; color: #2c7dff;" title="Info"><span
+                    class="material-icons-outlined">more_vert</span></div>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+
+        <div class="left-column">
+            <button class="journey-circle" id="journeyTrigger"><span
+                    class="material-icons-outlined">arrow_forward</span></button>
+            <span class="journey-circle">1</span>
+        </div>
+
+        <div class="journey-board" id="journeyBoard">
+            <div class="journey-popup-header">
+                <div class="journey-popup-title">
+                    <p>Journey Board</p>
+                    <button class="journey-popup-close" id="journeyClose"><span
+                            class="material-icons-outlined">arrow_backward</span>
+                    </button>
+                </div>
+            </div>
+            <ul class="journey-list" id="journeyList"></ul>
+        </div>
+
+        <section class="main-content">
+
+            <div class="main-header">
+                <h1 class="course-title" id="courseTitle"></h1>
+                <button class="submit-btn">Submit Task</button>
+            </div>
+
+            <section class="top-section">
+                <h2 class="task-header" id="taskHeader"></h2>
+                <p class="course-description" id="courseDescription"></p>
+            </section>
+
+            <section class="cards-grid" id="cardsContainer">
+            </section>
+        </section>
+    </div>
+
+    <div class="right-column">
+        <div class="notice-bar-content" id="noticeTrigger">Notice Board</div>
+    </div>
+
+    <div class="notice-board" id="noticeBoard">
+        <button class="notice-popup-close" id="noticeClose">&times;</button>
+        <div class="notice-popup-header">
+            <div class="notice-popup-title">Notice Board</div>
+        </div>
+        <p style="font-size:13px;color:#555;">
+            No notices available yet.
+        </p>
+    </div>
+
+    <div class="action-bar">
+        <div class="action-icon question" title="FAQ/Help">?</div>
+        <div class="action-icon" title="Query/Notes"><span class="material-icons-outlined">diversity_3</span></div>
+        <div class="action-icon" title="Calendar"><span class="material-icons-outlined">calendar_month</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
