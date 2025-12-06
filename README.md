@@ -1,9 +1,9 @@
-Technical Project Management – Dynamic Asset Rendering
+Technical Project Management – Dynamic Frontend UI
 
-This project contains the solution for Task 1 and Task 2 of the DeepThought Frontend Assignment.
-The goal was to build a reusable, dynamic, and fully interactive UI using HTML, CSS, and Vanilla JavaScript without any backend or server.
+A fully dynamic, JSON-driven UI built as part of the DeepThought Frontend Challenge, implemented using pure HTML, CSS, and Vanilla JavaScript.
 
- Task 1 – UI Development
+🔗 Live Demo:
+👉 https://dt-frontend-challenges.vercel.app/
 
 In the first task, the requirement was to recreate the given Figma-based UI layout using pure HTML and CSS.
 
