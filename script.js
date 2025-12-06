@@ -1,4 +1,4 @@
-// Full JSON provided (trimmed ONLY of unused Mongo/meta props in UI)
+
 const topic = {
     "category": "Course",
     "commitment": "4 hours",
@@ -64,7 +64,7 @@ const topic = {
 document.addEventListener('DOMContentLoaded', () => {
     const task = topic.tasks[0];
 
-    // ---------- DATA FEED KIYE H ----------
+    // ---------- DATA feed ----------
     document.getElementById('courseTitle').textContent = topic.title; 
     document.getElementById('taskHeader').textContent = task.task_title; 
     document.getElementById('courseDescription').textContent = task.task_description;
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mainLi.classList.add('active'); // Keep the first item active
     journeyList.appendChild(mainLi);
 
-    // Then all asset titles
+   
     task.assets.forEach(asset => {
         const li = document.createElement('li');
         li.textContent = asset.asset_title;
@@ -192,24 +192,23 @@ document.addEventListener('DOMContentLoaded', () => {
         noticeBoard.classList.remove('open');
     });
 
-    document.addEventListener("click", function (event) {
+   document.addEventListener("click", (event) => {
 
-    const clickedInsideNotice = noticeBoard.contains(event.target);
+    // check for notice
+    const clickedNotice = noticeBoard.contains(event.target);
     const clickedNoticeTrigger = noticeTrigger.contains(event.target);
 
-    // If clicked outside both the panel and the trigger → close panel
-    if (!clickedInsideNotice && !clickedNoticeTrigger) {
-        noticeBoard.classList.remove("open");
-    }
-});
-
-document.addEventListener("click", function (event) {
-
-    const clickedInsideJourney = journeyBoard.contains(event.target);
+    // check for journey
+    const clickedJourney = journeyBoard.contains(event.target);
     const clickedJourneyTrigger = journeyTrigger.contains(event.target);
 
-    // If clicked outside the journey board and its trigger → close it
-    if (!clickedInsideJourney && !clickedJourneyTrigger) {
+    // close notice if clicked outside
+    if (!clickedNotice && !clickedNoticeTrigger) {
+        noticeBoard.classList.remove("open");
+    }
+
+    // close journey if clicked outside
+    if (!clickedJourney && !clickedJourneyTrigger) {
         journeyBoard.classList.remove("open");
     }
 });
