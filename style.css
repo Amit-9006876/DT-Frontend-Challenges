@@ -68,19 +68,19 @@ body {
     font-size: 14px;
 }
 
-/* NEW LAYOUT GRID - Now we are using only 2 columns for the main content and journey toggle */
+
 .page-wrapper {
     display: grid;
     grid-template-columns: 70px 1fr;
-    /* Left Toggle (70px), Main Content (1fr) */
+   
     padding: 0;
     min-height: calc(100vh - 70px);
     position: relative;
 }
 
-/* --- COLUMN 1: LEFT JOURNEY TOGGLE --- */
+
 .left-column {
-    /* position: relative; */
+   
     background: #fff;
     gap: 10px;
     display: flex;
@@ -232,7 +232,7 @@ body {
     background: #fff;
     border-radius: 12px;
     border: 1px solid #ddd;
-    /* Remove padding from the top to allow the black strip to cover the edge */
+   
     padding: 0 18px 16px;
     min-height: 220px;
     display: flex;
@@ -240,48 +240,48 @@ body {
     gap: 10px;
 }
 
-/* --- BLACK STRIP STYLES (NEW) --- */
+
 .card-header-strip {
-    /* This is the black strip that spans the top of the card */
+   
     background: #000;
     color: white;
     border-radius: 12px 12px 0 0;
     padding: 10px 18px;
-    /* Padding for the text inside */
+    
     margin: 0 -18px 10px;
-    /* Negative margins to push it to the card's edges */
+  
     font-size: 16px;
     font-weight: 600;
 }
 
 .card-header {
-    /* Original card-header styles, contained within the strip for the title/info icon */
+   
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Reset padding/margin since it's now inside the strip */
+ 
     padding: 0;
     margin: 0;
     height: 30px;
-    /* Ensure some vertical alignment space */
+    
 }
 
 .card-title {
-    /* Inherit color from the black strip parent, and adjust font size if needed */
+    
     color: white;
     font-size: 16px;
     font-weight: 600;
 }
 
 .card-info {
-    /* Adjust colors for the info icon on the black background */
+ 
     width: 22px;
     height: 22px;
     border-radius: 50%;
     border: 1px solid white;
-    /* White border on black background */
+   
     color: white;
-    /* White text on black background */
+   
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,10 +289,10 @@ body {
     cursor: pointer;
 }
 
-/* --- END BLACK STRIP STYLES --- */
+
 
 .card-description {
-    /* Adjust margin-top if needed, but the margin in the strip should handle spacing */
+    
     font-size: 13px;
     color: #555;
 }
@@ -368,7 +368,7 @@ textarea {
     color: #555;
 }
 
-/* --- COLUMN 3: RIGHT NOTICE BAR (VARIABLE ELEMENT - Changed to absolute) --- */
+
 .right-column {
     position: absolute;
     top: 90px;
@@ -400,7 +400,7 @@ textarea {
     padding: 0;
 }
 
-/* The Notice Board (sidebar - Changed to absolute) */
+
 .notice-board {
     position: fixed;
     top: 70px;
@@ -436,7 +436,7 @@ textarea {
     z-index: 51;
 }
 
-/* --- FLOATING ACTION BAR (NEW) --- */
+
 .action-bar {
     position: fixed;
     right: 20px;
@@ -445,7 +445,7 @@ textarea {
     flex-direction: column;
     gap: 15px;
     z-index: 1000;
-    /* High z-index to ensure visibility */
+  
 }
 
 .action-icon {
@@ -479,4 +479,5 @@ textarea {
     .cards-grid {
         grid-template-columns: 1fr;
     }
+
 }
